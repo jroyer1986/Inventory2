@@ -1,0 +1,10 @@
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.dll
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.pdb
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.dll
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.pdb
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.csprojResolveAssemblyReference.cache
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.dll
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.pdb
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.dll
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.mocks.dll
+\\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.xml
