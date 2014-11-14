@@ -8,3 +8,13 @@
 \\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.dll
 \\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.mocks.dll
 \\CODEBOX-PC\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.xml
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.pdb
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.mocks.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.pdb
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.xml
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.csprojResolveAssemblyReference.cache
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.pdb

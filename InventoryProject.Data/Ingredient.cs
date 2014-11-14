@@ -10,7 +10,21 @@ namespace InventoryProject.Data
     {
         public string Name
         { get; set; }
-        public string Amount
+        public decimal Amount
         { get; set; }
+
+        public Ingredient(string name, decimal amount)
+        {
+            Name = name;
+            Amount = amount;
+        }
+
+        public Ingredient(Ingredient ingredient)
+        {
+            Name = ingredient.Name;
+            Amount = ingredient.Amount;
+        }
+
+        public Ingredient() { }
     }
 }
