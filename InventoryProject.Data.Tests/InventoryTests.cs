@@ -9,14 +9,14 @@ namespace InventoryProject.Data.Tests
         public Inventory GetInventory()
         {
             Inventory inventory = new Inventory();
-            inventory.Add(new Ingredient() { Name = "flour", Amount = 200 });
-            inventory.Add(new Ingredient() { Name = "sugar", Amount = 18 });
-            inventory.Add(new Ingredient() { Name = "salt", Amount = 12});
-            inventory.Add(new Ingredient() { Name = "hops", Amount = 99 });
-            inventory.Add(new Ingredient() { Name = "rice", Amount = 7 });
-            inventory.Add(new Ingredient() { Name = "oats", Amount = 80 });
-            inventory.Add(new Ingredient() { Name = "lavender", Amount = 20 });
-            inventory.Add(new Ingredient() { Name = "chamomile", Amount = 2 });
+            inventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(600) });
+            inventory.Add(new IngredientModel() { Name = "sugar", Amount = new AmountModel(18) });
+            inventory.Add(new IngredientModel() { Name = "salt", Amount = new AmountModel(12) });
+            inventory.Add(new IngredientModel() { Name = "hops", Amount = new AmountModel(99) });
+            inventory.Add(new IngredientModel() { Name = "rice", Amount = new AmountModel(7) });
+            inventory.Add(new IngredientModel() { Name = "oats", Amount = new AmountModel(80) });
+            inventory.Add(new IngredientModel() { Name = "lavender", Amount = new AmountModel (20) });
+            inventory.Add(new IngredientModel() { Name = "chamomile", Amount = new AmountModel(2) });
 
             return inventory;
         }
@@ -25,7 +25,7 @@ namespace InventoryProject.Data.Tests
         public void CanAddIngredientToInventory()
         {
             Inventory myInventory = new Inventory();
-            myInventory.Add(new Ingredient() { Name = "flour", Amount = 20 });
+            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(20) });
             Assert.IsTrue(myInventory.Has("flour"));
         }  
 
@@ -33,12 +33,12 @@ namespace InventoryProject.Data.Tests
         public void CanUseIngredientFromInventory()
         {
             Inventory myInventory = new Inventory();
-            myInventory.Add(new Ingredient() { Name = "flour", Amount = 1000 });
+            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(1000) });
 
-            Ingredient usedIngredient = myInventory.GetByName("flour");
+            IngredientModel usedIngredient = myInventory.GetByName("flour");
 
             myInventory.Use(usedIngredient.Name, 200);
-            Assert.AreEqual(800, (decimal)usedIngredient.Amount);            
+            Assert.AreEqual(800, (decimal)usedIngredient.Amount.Total);            
         }
 
         [Test]
@@ -47,25 +47,20 @@ namespace InventoryProject.Data.Tests
         {
             Inventory myInventory = GetInventory();
 
-            Ingredient usedIngredient = myInventory.GetByName("flour");
+            IngredientModel usedIngredient = myInventory.GetByName("flour");
 
-            myInventory.Use(usedIngredient.Name, 2000);
-           
+            myInventory.Use(usedIngredient.Name, 2000);           
        }
 
         [Test]
         public void SameIngredientsCombineAmounts()
         {
             Inventory myInventory = GetInventory();
-            Ingredient ingredientToAdd = new Ingredient() { Name = "flour", Amount = 500 };
+            IngredientModel ingredientToAdd = new IngredientModel() { Name = "flour", Amount = new AmountModel(50) };
 
-            if (myInventory.Has(ingredientToAdd.Name) == true)
-            {
-                var ingredientFromDB = myInventory.GetByName(ingredientToAdd.Name);
-                myInventory.CombineAmounts(ingredientFromDB.Name, ingredientToAdd.Amount);
-            }
+            myInventory.Add(ingredientToAdd);
 
-            Assert.AreEqual(700, myInventory.GetAmount("flour"));
+            Assert.AreEqual(650, myInventory.GetAmount("flour"));
         }
         
         [Test]
@@ -78,7 +73,7 @@ namespace InventoryProject.Data.Tests
         [Test]
         public void CanDeleteIngredientFromInventory()
         {
-            Ingredient newIngredient = new Ingredient() {Name = "corn starch", Amount = 222};
+            IngredientModel newIngredient = new IngredientModel() {Name = "corn starch", Amount = new AmountModel(222)};
 
             Inventory myInventory = GetInventory();
             myInventory.Add(newIngredient);

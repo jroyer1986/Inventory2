@@ -8,36 +8,40 @@ namespace InventoryProject.Data
 {
     public class Inventory
     {
-        List<Ingredient> Ingredients
+        List<IngredientModel> Ingredients
         { get; set; }
 
-        public void Add(Ingredient ingredient)
+        public void Add(IngredientModel ingredient)
         {
-            Ingredients.Add(ingredient);
+            //check if exists
+            //if it does, call combine
+            if (!Ingredients.Any(m => m.Name == ingredient.Name))
+            {
+                Ingredients.Add(ingredient);
+            }
+            else CombineAmounts(ingredient);
         }
 
         public bool Has(string ingredientName){
             return Ingredients.Any(m => m.Name == ingredientName);
         }
 
-        public Ingredient GetByName(string name)
+        public IngredientModel GetByName(string name)
         {
-            Ingredient ingredient = Ingredients.FirstOrDefault(m => m.Name == name);
+            IngredientModel ingredient = Ingredients.FirstOrDefault(m => m.Name == name);
             return ingredient;
         }
 
         public void Use(string Name, decimal Amount)
         {
-            throw new InvalidOperationException();
-            Ingredient ingredientToUse = Ingredients.FirstOrDefault(m => m.Name == Name);
+            IngredientModel ingredientToUse = Ingredients.FirstOrDefault(m => m.Name == Name);
 
-            decimal currentAmount = (decimal)ingredientToUse.Amount;
-            decimal newAmount = ((decimal)ingredientToUse.Amount - Amount);
+            AmountModel currentAmount = ingredientToUse.Amount;
+            decimal newAmountTotal = ingredientToUse.Amount.Total - Amount;
 
-            ingredientToUse.Amount = newAmount;
-            throw new InvalidOperationException();
+            ingredientToUse.Amount.Total = newAmountTotal;
   
-            if(ingredientToUse.Amount < (decimal)0)
+            if(ingredientToUse.Amount.Total < (decimal)0)
             {                
                 ingredientToUse.Amount = currentAmount;
                 throw new InvalidOperationException();
@@ -45,18 +49,18 @@ namespace InventoryProject.Data
 
         }
 
-        public void Remove(Ingredient ingredient)
+        public void Remove(IngredientModel ingredient)
         {
             Ingredients.Remove(ingredient);
         }
 
-        public void CombineAmounts(string Name, decimal AmountToAdd)
+        public void CombineAmounts(IngredientModel ingredientToCombine)
         {
-            Ingredient ingredientFromDB = Ingredients.FirstOrDefault(m => m.Name == Name);
-            decimal originalAmount = (decimal)ingredientFromDB.Amount;
-            decimal newTotalAmount = ((decimal)originalAmount + (decimal)AmountToAdd);
+            IngredientModel ingredientFromDB = Ingredients.FirstOrDefault(m => m.Name == ingredientToCombine.Name);
+            AmountModel originalAmount = ingredientFromDB.Amount;
+            decimal newTotalAmount = originalAmount.Total + ingredientToCombine.Amount.Total;
 
-            ingredientFromDB.Amount = newTotalAmount;            
+            ingredientFromDB.Amount.Total = newTotalAmount;            
         }
 
         public bool Any(string ingredientName)
@@ -66,13 +70,13 @@ namespace InventoryProject.Data
 
         public decimal GetAmount(string IngredientName)
         {
-            Ingredient ingredientFromDB = Ingredients.FirstOrDefault(m => m.Name == IngredientName);
-            return ingredientFromDB.Amount;
+            IngredientModel ingredientFromDB = Ingredients.FirstOrDefault(m => m.Name == IngredientName);
+            return ingredientFromDB.Amount.Total;
         }
 
         public Inventory()
         {
-            Ingredients = new List<Ingredient>();
+            Ingredients = new List<IngredientModel>();
         }
     }
 }

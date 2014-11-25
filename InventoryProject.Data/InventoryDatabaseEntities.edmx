@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ingredientAmountID" Type="int" Nullable="false" />
+          <Property Name="expirationDate" Type="datetime" />
+          <Property Name="placeOfPurchase" Type="varchar" MaxLength="100" />
+          <Property Name="Notes" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="IngredientAmount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="units" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ingredientListID" Type="int" Nullable="false" />
+          <Property Name="listOfDirections" Type="varchar(max)" Nullable="false" />
+          <Property Name="editHistory" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="RecipeIngredientList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ingredientID" Type="int" Nullable="false" />
+          <Property Name="recipeID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ingredient_IngredientAmount">
+          <End Role="IngredientAmount" Type="Self.IngredientAmount" Multiplicity="1" />
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngredientAmount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="ingredientAmountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_RecipeIngredientList">
+          <End Role="RecipeIngredientList" Type="Self.RecipeIngredientList" Multiplicity="1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeIngredientList">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="ingredientListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventoryDatabaseModelStoreContainer">
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngredientAmount" EntityType="Self.IngredientAmount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeIngredientList" EntityType="Self.RecipeIngredientList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ingredient_IngredientAmount" Association="Self.FK_Ingredient_IngredientAmount">
+            <End Role="IngredientAmount" EntitySet="IngredientAmount" />
+            <End Role="Ingredient" EntitySet="Ingredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_RecipeIngredientList" Association="Self.FK_Recipe_RecipeIngredientList">
+            <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventoryDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InventoryDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ingredient" EntityType="InventoryDatabaseModel.Ingredient" />
+          <EntitySet Name="IngredientAmount" EntityType="InventoryDatabaseModel.IngredientAmount" />
+          <EntitySet Name="Recipe" EntityType="InventoryDatabaseModel.Recipe" />
+          <EntitySet Name="RecipeIngredientList" EntityType="InventoryDatabaseModel.RecipeIngredientList" />
+          <AssociationSet Name="FK_Ingredient_IngredientAmount" Association="InventoryDatabaseModel.FK_Ingredient_IngredientAmount">
+            <End Role="IngredientAmount" EntitySet="IngredientAmount" />
+            <End Role="Ingredient" EntitySet="Ingredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_RecipeIngredientList" Association="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList">
+            <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ingredientAmountID" Type="Int32" Nullable="false" />
+          <Property Name="expirationDate" Type="DateTime" Precision="3" />
+          <Property Name="placeOfPurchase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IngredientAmount" Relationship="InventoryDatabaseModel.FK_Ingredient_IngredientAmount" FromRole="Ingredient" ToRole="IngredientAmount" />
+        </EntityType>
+        <EntityType Name="IngredientAmount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="units" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingredient" Relationship="InventoryDatabaseModel.FK_Ingredient_IngredientAmount" FromRole="IngredientAmount" ToRole="Ingredient" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ingredientListID" Type="Int32" Nullable="false" />
+          <Property Name="listOfDirections" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="editHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList" FromRole="Recipe" ToRole="RecipeIngredientList" />
+        </EntityType>
+        <EntityType Name="RecipeIngredientList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ingredientID" Type="Int32" Nullable="false" />
+          <Property Name="recipeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Recipe" Relationship="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList" FromRole="RecipeIngredientList" ToRole="Recipe" />
+        </EntityType>
+        <Association Name="FK_Ingredient_IngredientAmount">
+          <End Type="InventoryDatabaseModel.IngredientAmount" Role="IngredientAmount" Multiplicity="1" />
+          <End Type="InventoryDatabaseModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngredientAmount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="ingredientAmountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_RecipeIngredientList">
+          <End Type="InventoryDatabaseModel.RecipeIngredientList" Role="RecipeIngredientList" Multiplicity="1" />
+          <End Type="InventoryDatabaseModel.Recipe" Role="Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeIngredientList">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="ingredientListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventoryDatabaseModelStoreContainer" CdmEntityContainer="InventoryDatabaseEntities">
+          <EntitySetMapping Name="Ingredient">
+            <EntityTypeMapping TypeName="InventoryDatabaseModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="placeOfPurchase" ColumnName="placeOfPurchase" />
+                <ScalarProperty Name="expirationDate" ColumnName="expirationDate" />
+                <ScalarProperty Name="ingredientAmountID" ColumnName="ingredientAmountID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientAmount">
+            <EntityTypeMapping TypeName="InventoryDatabaseModel.IngredientAmount">
+              <MappingFragment StoreEntitySet="IngredientAmount">
+                <ScalarProperty Name="units" ColumnName="units" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipe">
+            <EntityTypeMapping TypeName="InventoryDatabaseModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="editHistory" ColumnName="editHistory" />
+                <ScalarProperty Name="listOfDirections" ColumnName="listOfDirections" />
+                <ScalarProperty Name="ingredientListID" ColumnName="ingredientListID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeIngredientList">
+            <EntityTypeMapping TypeName="InventoryDatabaseModel.RecipeIngredientList">
+              <MappingFragment StoreEntitySet="RecipeIngredientList">
+                <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+                <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
