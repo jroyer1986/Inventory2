@@ -58,5 +58,13 @@ namespace InventoryProject.Data.Repository
 
             _inventoryDatabaseEntities.SaveChanges();
         }
+
+        public void DeleteIngredient(string name)
+        {
+            Ingredient ingredentToDelete = _inventoryDatabaseEntities.Ingredient.FirstOrDefault(m => m.name == name);
+
+            _inventoryDatabaseEntities.Ingredient.Remove(ingredentToDelete);
+            _inventoryDatabaseEntities.SaveChanges();
+        }
     }
 }
