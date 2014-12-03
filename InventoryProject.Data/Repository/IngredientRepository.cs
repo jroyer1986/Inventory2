@@ -47,5 +47,16 @@ namespace InventoryProject.Data.Repository
             }
             else Combine(newIngredient);
         }
+
+        public void CombineIngredientAmounts(IngredientModel ingredientToCombine)
+        {
+            Ingredient dbIngredient = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.name == ingredientToCombine.Name);
+            decimal currentAmount = dbIngredient.IngredientAmount.amount;
+            decimal newAmount = currentAmount + ingredientToCombine.Amount.Total;
+
+            dbIngredient.IngredientAmount.amount = newAmount;
+
+            _inventoryDatabaseEntities.SaveChanges();
+        }
     }
 }
