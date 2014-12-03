@@ -7,19 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventoryProject.Data
+namespace InventoryProject.Data.Repository
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Recipe
+    public partial class RecipeIngredientList
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int ingredientListID { get; set; }
-        public string listOfDirections { get; set; }
-        public string editHistory { get; set; }
+        public RecipeIngredientList()
+        {
+            this.Recipe = new HashSet<Recipe>();
+        }
     
-        public virtual RecipeIngredientList RecipeIngredientList { get; set; }
+        public int id { get; set; }
+        public int ingredientID { get; set; }
+        public int recipeID { get; set; }
+    
+        public virtual ICollection<Recipe> Recipe { get; set; }
     }
 }

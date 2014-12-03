@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventoryProject.Data
+namespace InventoryProject.Data.Repository
 {
     using System;
     using System.Data.Entity;

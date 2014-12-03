@@ -53,54 +53,55 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmountModel.cs" />
-    <Compile Include="Ingredient.cs">
+    <Compile Include="Repository\Ingredient.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="IngredientAmount.cs">
+    <Compile Include="Repository\IngredientAmount.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="IngredientModel.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="InventoryDatabaseEntities.Context.cs">
+    <Compile Include="Repository\IngredientRepository.cs" />
+    <Compile Include="Repository\InventoryDatabaseEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryDatabaseEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="InventoryDatabaseEntities.cs">
+    <Compile Include="Repository\InventoryDatabaseEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="InventoryDatabaseEntities.Designer.cs">
+    <Compile Include="Repository\InventoryDatabaseEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs">
+    <Compile Include="Repository\Recipe.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeIngredientList.cs">
+    <Compile Include="Repository\RecipeIngredientList.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="RecipeModel.cs" />
     <Compile Include="RecipeBookModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="InventoryDatabaseEntities.edmx">
+    <EntityDeploy Include="Repository\InventoryDatabaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>InventoryDatabaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="InventoryDatabaseEntities.Context.tt">
+    <None Include="Repository\InventoryDatabaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
       <LastGenOutput>InventoryDatabaseEntities.Context.cs</LastGenOutput>
     </None>
-    <None Include="InventoryDatabaseEntities.edmx.diagram">
+    <None Include="Repository\InventoryDatabaseEntities.edmx.diagram">
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
     </None>
-    <None Include="InventoryDatabaseEntities.tt">
+    <None Include="Repository\InventoryDatabaseEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
       <LastGenOutput>InventoryDatabaseEntities.cs</LastGenOutput>

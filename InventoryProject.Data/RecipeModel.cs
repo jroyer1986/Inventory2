@@ -14,7 +14,6 @@ namespace InventoryProject.Data
         public string EditHistory {get;set;}
 
 
-
         public RecipeModel(string nameOfRecipe, List<IngredientModel> ingredients, string listOfDirections, string editHistory)
         {
             NameOfRecipe = nameOfRecipe;

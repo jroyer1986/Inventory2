@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InventoryProject.Data
+namespace InventoryProject.Data.Repository
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Ingredient
+    public partial class Recipe
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int ingredientAmountID { get; set; }
-        public Nullable<System.DateTime> expirationDate { get; set; }
-        public string placeOfPurchase { get; set; }
-        public string Notes { get; set; }
+        public int ingredientListID { get; set; }
+        public string listOfDirections { get; set; }
+        public string editHistory { get; set; }
     
-        public virtual IngredientAmount IngredientAmount { get; set; }
+        public virtual RecipeIngredientList RecipeIngredientList { get; set; }
     }
 }
