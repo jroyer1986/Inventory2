@@ -19,7 +19,7 @@ namespace InventoryProject.Data.Repository
         public int ingredientAmountID { get; set; }
         public Nullable<System.DateTime> expirationDate { get; set; }
         public string placeOfPurchase { get; set; }
-        public string Notes { get; set; }
+        public string notes { get; set; }
     
         public virtual IngredientAmount IngredientAmount { get; set; }
     }

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventoryDatabaseModelStoreContainer" CdmEntityContainer="InventoryDatabaseEntities">
+    <EntitySetMapping Name="Ingredient">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="placeOfPurchase" ColumnName="placeOfPurchase" />
+          <ScalarProperty Name="expirationDate" ColumnName="expirationDate" />
+          <ScalarProperty Name="ingredientAmountID" ColumnName="ingredientAmountID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngredientAmount">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.IngredientAmount">
+        <MappingFragment StoreEntitySet="IngredientAmount">
+          <ScalarProperty Name="units" ColumnName="units" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipe">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="editHistory" ColumnName="editHistory" />
+          <ScalarProperty Name="listOfDirections" ColumnName="listOfDirections" />
+          <ScalarProperty Name="ingredientListID" ColumnName="ingredientListID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeIngredientList">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.RecipeIngredientList">
+        <MappingFragment StoreEntitySet="RecipeIngredientList">
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
