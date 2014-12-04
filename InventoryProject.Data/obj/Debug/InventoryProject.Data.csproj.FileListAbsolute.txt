@@ -12,3 +12,8 @@ C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\nunit.fra
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.csprojResolveAssemblyReference.cache
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.dll
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.pdb
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\InventoryProject.Data.dll.config
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.xml
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.xml

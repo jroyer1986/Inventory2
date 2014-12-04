@@ -43,5 +43,11 @@ namespace InventoryProject.Data
         }
 
         public IngredientModel() { }
+
+        public IngredientModel(string name, decimal amount)
+        {
+            AmountModel amountModel = new AmountModel(amount);
+            Amount = amountModel;
+        }
     }
 }
