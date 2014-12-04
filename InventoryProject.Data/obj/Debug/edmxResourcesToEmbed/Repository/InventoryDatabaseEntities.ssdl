@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ingredientAmountID" Type="int" Nullable="false" />
+    <Property Name="expirationDate" Type="datetime" />
+    <Property Name="placeOfPurchase" Type="varchar" MaxLength="100" />
+    <Property Name="Notes" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="IngredientAmount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="units" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ingredientListID" Type="int" Nullable="false" />
+    <Property Name="listOfDirections" Type="varchar(max)" Nullable="false" />
+    <Property Name="editHistory" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="RecipeIngredientList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ingredientID" Type="int" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ingredient_IngredientAmount">
+    <End Role="IngredientAmount" Type="Self.IngredientAmount" Multiplicity="1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IngredientAmount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="ingredientAmountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recipe_RecipeIngredientList">
+    <End Role="RecipeIngredientList" Type="Self.RecipeIngredientList" Multiplicity="1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecipeIngredientList">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="ingredientListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InventoryDatabaseModelStoreContainer">
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IngredientAmount" EntityType="Self.IngredientAmount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeIngredientList" EntityType="Self.RecipeIngredientList" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ingredient_IngredientAmount" Association="Self.FK_Ingredient_IngredientAmount">
+      <End Role="IngredientAmount" EntitySet="IngredientAmount" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recipe_RecipeIngredientList" Association="Self.FK_Recipe_RecipeIngredientList">
+      <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
