@@ -66,5 +66,65 @@ namespace InventoryProject.Data.Repository
             _inventoryDatabaseEntities.Ingredient.Remove(ingredentToDelete);
             _inventoryDatabaseEntities.SaveChanges();
         }
+
+        public IEnumerable<IngredientModel> Search(string name)
+        {
+            var searchResults = _inventoryDatabaseEntities.Ingredient.Where(m => m.name.Contains(name));
+
+            var listOfIngredientsForController = new List<IngredientModel>();
+            
+            foreach(Ingredient singleSearchResult in searchResults)
+            {
+                AmountModel ingredientAmount = new AmountModel(singleSearchResult.IngredientAmount.amount);
+                IngredientModel ingredientFromSearch = new IngredientModel(singleSearchResult.id, singleSearchResult.name, ingredientAmount, singleSearchResult.expirationDate, singleSearchResult.placeOfPurchase, singleSearchResult.notes);
+
+                listOfIngredientsForController.Add(ingredientFromSearch);
+            }
+            return listOfIngredientsForController;
+        }
+
+        public IngredientModel GetIngredientByID(int id)
+        {
+            Ingredient dbIngredient = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.id == id);
+
+            if(dbIngredient != null)
+            {
+                AmountModel amountModel = new AmountModel(dbIngredient.IngredientAmount.amount);
+                IngredientModel ingredientModel = new IngredientModel(dbIngredient.id, dbIngredient.name, amountModel, dbIngredient.expirationDate, dbIngredient.placeOfPurchase, dbIngredient.notes);
+                return ingredientModel;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IEnumerable<IngredientModel> GetListOfIngredients()
+        {
+            var listOfDatabaseIngredients = _inventoryDatabaseEntities.Ingredient.AsEnumerable();
+
+            List<IngredientModel> listOfIngredientsForController = new List<IngredientModel>();
+
+            if (listOfDatabaseIngredients != null)
+            {
+                foreach (Ingredient ingredientFromList in listOfDatabaseIngredients)
+                {
+                    AmountModel ingredientAmount = new AmountModel(ingredientFromList.IngredientAmount.amount);
+                    IngredientModel ingredientModel = new IngredientModel(ingredientFromList.id, ingredientFromList.name, ingredientAmount, ingredientFromList.expirationDate, ingredientFromList.placeOfPurchase, ingredientFromList.notes);
+
+                    listOfIngredientsForController.Add(ingredientModel);
+                }
+                return listOfIngredientsForController;
+            }
+            return null;
+        }
+
+        public void UseIngredient(string name, decimal amountToUse)
+        {
+            Ingredient ingredientToUse = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.name == name);
+
+            var currentAmount = ingredientToUse.IngredientAmount.amount;
+            var newAmount = currentAmount - amountToUse
+        }
     }
 }
