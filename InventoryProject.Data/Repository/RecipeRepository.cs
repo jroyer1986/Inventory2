@@ -12,14 +12,13 @@ namespace InventoryProject.Data.Repository
 
         public void Create(RecipeModel recipeToAdd)
         {
-            //Recipe newRecipe = new Recipe()
-            //{
-            //    id = recipeToAdd.ID,
-            //    name = recipeToAdd.NameOfRecipe,
-            //    RecipeIngredientList = recipeToAdd.Ingredients,
-            //    listOfDirections = recipeToAdd.ListOfDirections,
-            //    editHistory = recipeToAdd.EditHistory
-            //};
+            Recipe newRecipe = new Recipe()
+            {
+                id = recipeToAdd.ID,
+                name = recipeToAdd.NameOfRecipe,
+                listOfDirections = recipeToAdd.ListOfDirections,
+                editHistory = recipeToAdd.EditHistory
+            };
         }
     }
 }

@@ -14,13 +14,19 @@ namespace InventoryProject.Data.Repository
     
     public partial class Ingredient
     {
+        public Ingredient()
+        {
+            this.RecipeIngredientList = new HashSet<RecipeIngredientList>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public int ingredientAmountID { get; set; }
         public Nullable<System.DateTime> expirationDate { get; set; }
         public string placeOfPurchase { get; set; }
-        public string Notes { get; set; }
+        public string notes { get; set; }
     
         public virtual IngredientAmount IngredientAmount { get; set; }
+        public virtual ICollection<RecipeIngredientList> RecipeIngredientList { get; set; }
     }
 }

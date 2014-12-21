@@ -1,17 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="InventoryDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="InventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="InventoryDatabaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Ingredient" EntityType="InventoryDatabaseModel.Ingredient" />
-    <EntitySet Name="IngredientAmount" EntityType="InventoryDatabaseModel.IngredientAmount" />
-    <EntitySet Name="Recipe" EntityType="InventoryDatabaseModel.Recipe" />
-    <EntitySet Name="RecipeIngredientList" EntityType="InventoryDatabaseModel.RecipeIngredientList" />
-    <AssociationSet Name="FK_Ingredient_IngredientAmount" Association="InventoryDatabaseModel.FK_Ingredient_IngredientAmount">
+    <EntitySet Name="Ingredient" EntityType="InventoryModel.Ingredient" />
+    <EntitySet Name="IngredientAmount" EntityType="InventoryModel.IngredientAmount" />
+    <EntitySet Name="Recipe" EntityType="InventoryModel.Recipe" />
+    <EntitySet Name="RecipeIngredientList" EntityType="InventoryModel.RecipeIngredientList" />
+    <AssociationSet Name="FK_Ingredient_IngredientAmount" Association="InventoryModel.FK_Ingredient_IngredientAmount">
       <End Role="IngredientAmount" EntitySet="IngredientAmount" />
       <End Role="Ingredient" EntitySet="Ingredient" />
     </AssociationSet>
-    <AssociationSet Name="FK_Recipe_RecipeIngredientList" Association="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList">
+    <AssociationSet Name="FK_RecipeIngredientList_Ingredient" Association="InventoryModel.FK_RecipeIngredientList_Ingredient">
+      <End Role="Ingredient" EntitySet="Ingredient" />
       <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeIngredientList_IngredientAmount" Association="InventoryModel.FK_RecipeIngredientList_IngredientAmount">
+      <End Role="IngredientAmount" EntitySet="IngredientAmount" />
+      <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeIngredientList_Recipe" Association="InventoryModel.FK_RecipeIngredientList_Recipe">
       <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="RecipeIngredientList" EntitySet="RecipeIngredientList" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Ingredient">
@@ -19,32 +27,33 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ingredientAmountID" Type="Int32" Nullable="false" />
     <Property Name="expirationDate" Type="DateTime" Precision="3" />
-    <Property Name="placeOfPurchase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="IngredientAmount" Relationship="InventoryDatabaseModel.FK_Ingredient_IngredientAmount" FromRole="Ingredient" ToRole="IngredientAmount" />
+    <Property Name="placeOfPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="IngredientAmount" Relationship="InventoryModel.FK_Ingredient_IngredientAmount" FromRole="Ingredient" ToRole="IngredientAmount" />
+    <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryModel.FK_RecipeIngredientList_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredientList" />
   </EntityType>
   <EntityType Name="IngredientAmount">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="units" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Ingredient" Relationship="InventoryDatabaseModel.FK_Ingredient_IngredientAmount" FromRole="IngredientAmount" ToRole="Ingredient" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="units" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ingredient" Relationship="InventoryModel.FK_Ingredient_IngredientAmount" FromRole="IngredientAmount" ToRole="Ingredient" />
+    <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryModel.FK_RecipeIngredientList_IngredientAmount" FromRole="IngredientAmount" ToRole="RecipeIngredientList" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ingredientListID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="listOfDirections" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="editHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList" FromRole="Recipe" ToRole="RecipeIngredientList" />
+    <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryModel.FK_RecipeIngredientList_Recipe" FromRole="Recipe" ToRole="RecipeIngredientList" />
   </EntityType>
   <EntityType Name="RecipeIngredientList">
     <Key>
@@ -53,11 +62,14 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ingredientID" Type="Int32" Nullable="false" />
     <Property Name="recipeID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Recipe" Relationship="InventoryDatabaseModel.FK_Recipe_RecipeIngredientList" FromRole="RecipeIngredientList" ToRole="Recipe" />
+    <Property Name="amountID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ingredient" Relationship="InventoryModel.FK_RecipeIngredientList_Ingredient" FromRole="RecipeIngredientList" ToRole="Ingredient" />
+    <NavigationProperty Name="IngredientAmount" Relationship="InventoryModel.FK_RecipeIngredientList_IngredientAmount" FromRole="RecipeIngredientList" ToRole="IngredientAmount" />
+    <NavigationProperty Name="Recipe" Relationship="InventoryModel.FK_RecipeIngredientList_Recipe" FromRole="RecipeIngredientList" ToRole="Recipe" />
   </EntityType>
   <Association Name="FK_Ingredient_IngredientAmount">
-    <End Type="InventoryDatabaseModel.IngredientAmount" Role="IngredientAmount" Multiplicity="1" />
-    <End Type="InventoryDatabaseModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+    <End Type="InventoryModel.IngredientAmount" Role="IngredientAmount" Multiplicity="1" />
+    <End Type="InventoryModel.Ingredient" Role="Ingredient" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="IngredientAmount">
         <PropertyRef Name="id" />
@@ -67,15 +79,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Recipe_RecipeIngredientList">
-    <End Type="InventoryDatabaseModel.RecipeIngredientList" Role="RecipeIngredientList" Multiplicity="1" />
-    <End Type="InventoryDatabaseModel.Recipe" Role="Recipe" Multiplicity="*" />
+  <Association Name="FK_RecipeIngredientList_Ingredient">
+    <End Type="InventoryModel.Ingredient" Role="Ingredient" Multiplicity="1" />
+    <End Type="InventoryModel.RecipeIngredientList" Role="RecipeIngredientList" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="RecipeIngredientList">
+      <Principal Role="Ingredient">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Recipe">
-        <PropertyRef Name="ingredientListID" />
+      <Dependent Role="RecipeIngredientList">
+        <PropertyRef Name="ingredientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeIngredientList_IngredientAmount">
+    <End Type="InventoryModel.IngredientAmount" Role="IngredientAmount" Multiplicity="1" />
+    <End Type="InventoryModel.RecipeIngredientList" Role="RecipeIngredientList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IngredientAmount">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RecipeIngredientList">
+        <PropertyRef Name="amountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeIngredientList_Recipe">
+    <End Type="InventoryModel.Recipe" Role="Recipe" Multiplicity="1" />
+    <End Type="InventoryModel.RecipeIngredientList" Role="RecipeIngredientList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RecipeIngredientList">
+        <PropertyRef Name="recipeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

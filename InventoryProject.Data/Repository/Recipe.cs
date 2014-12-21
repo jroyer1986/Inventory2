@@ -14,12 +14,16 @@ namespace InventoryProject.Data.Repository
     
     public partial class Recipe
     {
+        public Recipe()
+        {
+            this.RecipeIngredientList = new HashSet<RecipeIngredientList>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
-        public int ingredientListID { get; set; }
         public string listOfDirections { get; set; }
         public string editHistory { get; set; }
     
-        public virtual RecipeIngredientList RecipeIngredientList { get; set; }
+        public virtual ICollection<RecipeIngredientList> RecipeIngredientList { get; set; }
     }
 }

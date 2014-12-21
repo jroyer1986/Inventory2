@@ -17,6 +17,7 @@ namespace InventoryProject.Data.Repository
         public IngredientAmount()
         {
             this.Ingredient = new HashSet<Ingredient>();
+            this.RecipeIngredientList = new HashSet<RecipeIngredientList>();
         }
     
         public int id { get; set; }
@@ -24,5 +25,6 @@ namespace InventoryProject.Data.Repository
         public string units { get; set; }
     
         public virtual ICollection<Ingredient> Ingredient { get; set; }
+        public virtual ICollection<RecipeIngredientList> RecipeIngredientList { get; set; }
     }
 }

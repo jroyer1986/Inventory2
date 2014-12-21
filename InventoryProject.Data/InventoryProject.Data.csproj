@@ -53,15 +53,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmountModel.cs" />
+    <Compile Include="IngredientModel.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Repository\Ingredient.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\IngredientAmount.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="IngredientModel.cs" />
-    <Compile Include="Inventory.cs" />
     <Compile Include="Repository\IngredientRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeModel.cs" />
+    <Compile Include="RecipeBookModel.cs" />
     <Compile Include="Repository\InventoryDatabaseEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,23 +80,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Recipe.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\RecipeIngredientList.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeModel.cs" />
-    <Compile Include="RecipeBookModel.cs" />
     <Compile Include="Repository\RecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="Repository\InventoryDatabaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>InventoryDatabaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="Repository\InventoryDatabaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
@@ -107,7 +108,6 @@
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
       <LastGenOutput>InventoryDatabaseEntities.cs</LastGenOutput>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
