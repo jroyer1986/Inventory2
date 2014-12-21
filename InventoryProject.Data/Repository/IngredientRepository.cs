@@ -45,7 +45,7 @@ namespace InventoryProject.Data.Repository
                 _inventoryDatabaseEntities.Ingredient.Add(dbIngredient);
                 _inventoryDatabaseEntities.SaveChanges();
             }
-            else Combine(newIngredient);
+            else CombineIngredientAmounts(newIngredient);
         }
 
         public void CombineIngredientAmounts(IngredientModel ingredientToCombine)
@@ -124,7 +124,7 @@ namespace InventoryProject.Data.Repository
             Ingredient ingredientToUse = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.name == name);
 
             var currentAmount = ingredientToUse.IngredientAmount.amount;
-            var newAmount = currentAmount - amountToUse
+            var newAmount = currentAmount - amountToUse;
         }
     }
 }

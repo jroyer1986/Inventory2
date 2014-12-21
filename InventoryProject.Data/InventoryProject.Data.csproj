@@ -86,6 +86,7 @@
     </Compile>
     <Compile Include="RecipeModel.cs" />
     <Compile Include="RecipeBookModel.cs" />
+    <Compile Include="Repository\RecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Repository\InventoryDatabaseEntities.edmx">

@@ -8,6 +8,7 @@ namespace InventoryProject.Data
 {
     public class RecipeModel
     {
+        public int ID { get; set; }
         public string NameOfRecipe { get; set; }
         public List<IngredientModel> Ingredients { get; set; }
         public string ListOfDirections {get;set;}

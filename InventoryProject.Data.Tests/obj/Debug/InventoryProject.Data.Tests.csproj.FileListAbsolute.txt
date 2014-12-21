@@ -18,3 +18,5 @@ C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nun
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.csprojResolveAssemblyReference.cache
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.dll
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.pdb
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.dll
+C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.xml
