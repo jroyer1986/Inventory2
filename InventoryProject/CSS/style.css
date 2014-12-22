@@ -1,0 +1,26 @@
+.body-content {
+	text-align: center;
+	background-image: url(../img/randombackground.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: orange;
+	background-position: center;
+}
+
+.page-header {
+	font-size: 1.75em;
+}
+
+h1 {
+	font-size: 72px;
+	color: white;
+}
+
+header {
+	background-color: orange;
+}
+
+p {
+	font-size: 20px;
+}
+

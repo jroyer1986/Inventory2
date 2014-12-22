@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6799f2a891c14cf39adc1ff9a3372727" Name="Diagram1">
-        <EntityTypeShape EntityType="InventoryModel.Ingredient" Width="1.5" PointX="9.125" PointY="1.125" />
-        <EntityTypeShape EntityType="InventoryModel.IngredientAmount" Width="1.5" PointX="6.75" PointY="1" />
-        <EntityTypeShape EntityType="InventoryModel.Recipe" Width="1.5" PointX="1" PointY="1.625" />
-        <EntityTypeShape EntityType="InventoryModel.RecipeIngredientList" Width="1.5" PointX="3.25" PointY="1.375" />
+        <EntityTypeShape EntityType="InventoryModel.Ingredient" Width="2" PointX="9.125" PointY="1.125" />
+        <EntityTypeShape EntityType="InventoryModel.IngredientAmount" Width="1.75" PointX="6.5" PointY="1" />
+        <EntityTypeShape EntityType="InventoryModel.Recipe" Width="2.125" PointX="0.5" PointY="1.5" />
+        <EntityTypeShape EntityType="InventoryModel.RecipeIngredientList" Width="2.25" PointX="3.25" PointY="1.375" />
         <AssociationConnector Association="InventoryModel.FK_Ingredient_IngredientAmount" />
         <AssociationConnector Association="InventoryModel.FK_RecipeIngredientList_Ingredient" />
         <AssociationConnector Association="InventoryModel.FK_RecipeIngredientList_IngredientAmount" />

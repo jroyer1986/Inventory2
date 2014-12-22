@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +56,7 @@
     <Compile Include="AmountModel.cs" />
     <Compile Include="IngredientModel.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="RecipeIngredientListModel.cs" />
     <Compile Include="Repository\Ingredient.cs">
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
@@ -87,6 +89,7 @@
       <DependentUpon>InventoryDatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\RecipeRepository.cs" />
+    <Compile Include="UnitEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

@@ -9,14 +9,14 @@ namespace InventoryProject.Data.Tests
         public Inventory GetInventory()
         {
             Inventory inventory = new Inventory();
-            inventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(600) });
-            inventory.Add(new IngredientModel() { Name = "sugar", Amount = new AmountModel(18) });
-            inventory.Add(new IngredientModel() { Name = "salt", Amount = new AmountModel(12) });
-            inventory.Add(new IngredientModel() { Name = "hops", Amount = new AmountModel(99) });
-            inventory.Add(new IngredientModel() { Name = "rice", Amount = new AmountModel(7) });
-            inventory.Add(new IngredientModel() { Name = "oats", Amount = new AmountModel(80) });
-            inventory.Add(new IngredientModel() { Name = "lavender", Amount = new AmountModel (20) });
-            inventory.Add(new IngredientModel() { Name = "chamomile", Amount = new AmountModel(2) });
+            inventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(600, "grams") });
+            inventory.Add(new IngredientModel() { Name = "sugar", Amount = new AmountModel(18, "grams") });
+            inventory.Add(new IngredientModel() { Name = "salt", Amount = new AmountModel(12, "grams") });
+            inventory.Add(new IngredientModel() { Name = "hops", Amount = new AmountModel(99, "grams") });
+            inventory.Add(new IngredientModel() { Name = "rice", Amount = new AmountModel(7, "grams") });
+            inventory.Add(new IngredientModel() { Name = "oats", Amount = new AmountModel(80, "grams") });
+            inventory.Add(new IngredientModel() { Name = "lavender", Amount = new AmountModel(20, "grams") });
+            inventory.Add(new IngredientModel() { Name = "chamomile", Amount = new AmountModel(2, "grams") });
 
             return inventory;
         }
@@ -25,7 +25,7 @@ namespace InventoryProject.Data.Tests
         public void CanAddIngredientToInventory()
         {
             Inventory myInventory = new Inventory();
-            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(20) });
+            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(20, "grams") });
             Assert.IsTrue(myInventory.Has("flour"));
         }  
 
@@ -33,7 +33,7 @@ namespace InventoryProject.Data.Tests
         public void CanUseIngredientFromInventory()
         {
             Inventory myInventory = new Inventory();
-            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(1000) });
+            myInventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(1000, "grams") });
 
             IngredientModel usedIngredient = myInventory.GetByName("flour");
 
@@ -56,7 +56,7 @@ namespace InventoryProject.Data.Tests
         public void SameIngredientsCombineAmounts()
         {
             Inventory myInventory = GetInventory();
-            IngredientModel ingredientToAdd = new IngredientModel() { Name = "flour", Amount = new AmountModel(50) };
+            IngredientModel ingredientToAdd = new IngredientModel() { Name = "flour", Amount = new AmountModel(50, "grams") };
 
             myInventory.Add(ingredientToAdd);
 
@@ -73,7 +73,7 @@ namespace InventoryProject.Data.Tests
         [Test]
         public void CanDeleteIngredientFromInventory()
         {
-            IngredientModel newIngredient = new IngredientModel() {Name = "corn starch", Amount = new AmountModel(222)};
+            IngredientModel newIngredient = new IngredientModel() { Name = "corn starch", Amount = new AmountModel(222, "grams") };
 
             Inventory myInventory = GetInventory();
             myInventory.Add(newIngredient);

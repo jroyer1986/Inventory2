@@ -13,35 +13,35 @@ namespace InventoryProject.Data.Tests
         public Inventory GetInventory()
         {
             Inventory inventory = new Inventory();
-            inventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(600) });
-            inventory.Add(new IngredientModel() { Name = "sugar", Amount = new AmountModel(18) });
-            inventory.Add(new IngredientModel() { Name = "salt", Amount = new AmountModel(12) });
-            inventory.Add(new IngredientModel() { Name = "hops", Amount = new AmountModel(99) });
-            inventory.Add(new IngredientModel() { Name = "rice", Amount = new AmountModel(7) });
-            inventory.Add(new IngredientModel() { Name = "oats", Amount = new AmountModel(80) });
-            inventory.Add(new IngredientModel() { Name = "lavender", Amount = new AmountModel(20) });
-            inventory.Add(new IngredientModel() { Name = "chamomile", Amount = new AmountModel(2) });
-            inventory.Add(new IngredientModel() { Name = "baking soda", Amount = new AmountModel(100) });
-            inventory.Add(new IngredientModel() { Name = "corn starch", Amount = new AmountModel(150) });
+            inventory.Add(new IngredientModel() { Name = "flour", Amount = new AmountModel(600, "grams") });
+            inventory.Add(new IngredientModel() { Name = "sugar", Amount = new AmountModel(18, "grams") });
+            inventory.Add(new IngredientModel() { Name = "salt", Amount = new AmountModel(12, "grams") });
+            inventory.Add(new IngredientModel() { Name = "hops", Amount = new AmountModel(99, "grams") });
+            inventory.Add(new IngredientModel() { Name = "rice", Amount = new AmountModel(7, "grams") });
+            inventory.Add(new IngredientModel() { Name = "oats", Amount = new AmountModel(80, "grams") });
+            inventory.Add(new IngredientModel() { Name = "lavender", Amount = new AmountModel(20, "grams") });
+            inventory.Add(new IngredientModel() { Name = "chamomile", Amount = new AmountModel(2, "grams") });
+            inventory.Add(new IngredientModel() { Name = "baking soda", Amount = new AmountModel(100, "grams") });
+            inventory.Add(new IngredientModel() { Name = "corn starch", Amount = new AmountModel(150, "grams") });
 
             return inventory;
         }
         public RecipeBookModel GetRecipeBook()
         {
             List<IngredientModel> listOfMuffinIngredients = new List<IngredientModel>(){
-                new IngredientModel("flour", 1200),
-                new IngredientModel("sugar", 10),
-                new IngredientModel("salt", 2)
+                new IngredientModel("flour", 1200, "grams"),
+                new IngredientModel("sugar", 10, "grams"),
+                new IngredientModel("salt", 2, "grams")
             };
             List<IngredientModel> listOfCookieIngredients = new List<IngredientModel>(){
-            new IngredientModel("flour", 400),
-            new IngredientModel("salt", 5),
-            new IngredientModel("baking soda", 75)
+            new IngredientModel("flour", 400, "grams"),
+            new IngredientModel("salt", 5, "grams"),
+            new IngredientModel("baking soda", 75, "grams")
             };
             List<IngredientModel> listOfBreadIngredients = new List<IngredientModel>(){
-                new IngredientModel("flour", 600),
-                new IngredientModel("sugar", 300),
-                new IngredientModel("corn starch", 100)                
+                new IngredientModel("flour", 600, "grams"),
+                new IngredientModel("sugar", 300, "grams"),
+                new IngredientModel("corn starch", 100, "grams")                
             };
 
             RecipeBookModel myRecipes = new RecipeBookModel();
@@ -57,9 +57,9 @@ namespace InventoryProject.Data.Tests
         {
             RecipeBookModel myRecipeBook = GetRecipeBook();
             List<IngredientModel> listOfCookieIngredients = new List<IngredientModel>(){
-            new IngredientModel("flour", 400),
-            new IngredientModel("salt", 5),
-            new IngredientModel("baking soda", 75)
+            new IngredientModel("flour", 400, "grams"),
+            new IngredientModel("salt", 5, "grams"),
+            new IngredientModel("baking soda", 75, "grams")
             };
             RecipeModel newRecipe = new RecipeModel("Cookies", listOfCookieIngredients, "combine all ingredients. Bake at 400", "created recipe");
             myRecipeBook.Add(newRecipe);
@@ -71,9 +71,9 @@ namespace InventoryProject.Data.Tests
         {
             Inventory myInventory = GetInventory();
             List<IngredientModel> listOfIngredientsForRecipe = new List<IngredientModel>(){
-                new IngredientModel("flour", 600),
-                new IngredientModel("sugar", 300),
-                new IngredientModel("corn starch", 100)                
+                new IngredientModel("flour", 600, "grams"),
+                new IngredientModel("sugar", 300, "grams"),
+                new IngredientModel("corn starch", 100, "grams")                
             };
             RecipeModel newRecipe = new RecipeModel("Bread Recipe", listOfIngredientsForRecipe, "Mix dry ingredients. Add water.  Bake at 365 for 20 min", "created recipe");
 
@@ -140,9 +140,9 @@ namespace InventoryProject.Data.Tests
             string editComments = "this is where I would describe the changes I made and why I made them";
             List<IngredientModel> newCookieIngredients = new List<IngredientModel>()
             {
-                new IngredientModel("flour", 111),
-                new IngredientModel("sugar", 11),
-                new IngredientModel("salt", 1)
+                new IngredientModel("flour", 111, "grams"),
+                new IngredientModel("sugar", 11, "grams"),
+                new IngredientModel("salt", 1, "grams")
             };
             RecipeModel recipeToEdit = myRecipes.GetRecipe("cookie recipe");
             RecipeModel EditedRecipe = new RecipeModel(recipeToEdit.NameOfRecipe, newCookieIngredients, recipeToEdit.ListOfDirections, recipeToEdit.EditHistory);

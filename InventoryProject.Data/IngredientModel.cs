@@ -25,7 +25,7 @@ namespace InventoryProject.Data
         {
             ID = id;
             Name = name;
-            AmountModel newAmount = new AmountModel(amount.Total);
+            AmountModel newAmount = new AmountModel(amount.Total, amount.Unit);
             Amount = newAmount;
             ExpirationDate = expirationDate;
             PlaceOfPurchase = placeOfPurchase;
@@ -44,9 +44,9 @@ namespace InventoryProject.Data
 
         public IngredientModel() { }
 
-        public IngredientModel(string name, decimal amount)
+        public IngredientModel(string name, decimal amount, string units)
         {
-            AmountModel amountModel = new AmountModel(amount);
+            AmountModel amountModel = new AmountModel(amount, units);
             Amount = amountModel;
         }
     }

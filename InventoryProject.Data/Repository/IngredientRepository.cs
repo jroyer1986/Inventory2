@@ -18,7 +18,7 @@ namespace InventoryProject.Data.Repository
 
             foreach (Ingredient ingredient in ingredients)
             {
-                AmountModel amountParsed = new AmountModel(ingredient.IngredientAmount.amount);
+                AmountModel amountParsed = new AmountModel(ingredient.IngredientAmount.amount, ingredient.IngredientAmount.units);
 
                 IngredientModel ingredientModel = new IngredientModel(ingredient.id, ingredient.name, amountParsed, ingredient.expirationDate, ingredient.placeOfPurchase, ingredient.notes);
                 ingredientsForController.Add(ingredientModel);
@@ -75,7 +75,7 @@ namespace InventoryProject.Data.Repository
             
             foreach(Ingredient singleSearchResult in searchResults)
             {
-                AmountModel ingredientAmount = new AmountModel(singleSearchResult.IngredientAmount.amount);
+                AmountModel ingredientAmount = new AmountModel(singleSearchResult.IngredientAmount.amount, singleSearchResult.IngredientAmount.units);
                 IngredientModel ingredientFromSearch = new IngredientModel(singleSearchResult.id, singleSearchResult.name, ingredientAmount, singleSearchResult.expirationDate, singleSearchResult.placeOfPurchase, singleSearchResult.notes);
 
                 listOfIngredientsForController.Add(ingredientFromSearch);
@@ -89,7 +89,7 @@ namespace InventoryProject.Data.Repository
 
             if(dbIngredient != null)
             {
-                AmountModel amountModel = new AmountModel(dbIngredient.IngredientAmount.amount);
+                AmountModel amountModel = new AmountModel(dbIngredient.IngredientAmount.amount, dbIngredient.IngredientAmount.units);
                 IngredientModel ingredientModel = new IngredientModel(dbIngredient.id, dbIngredient.name, amountModel, dbIngredient.expirationDate, dbIngredient.placeOfPurchase, dbIngredient.notes);
                 return ingredientModel;
             }
@@ -109,7 +109,7 @@ namespace InventoryProject.Data.Repository
             {
                 foreach (Ingredient ingredientFromList in listOfDatabaseIngredients)
                 {
-                    AmountModel ingredientAmount = new AmountModel(ingredientFromList.IngredientAmount.amount);
+                    AmountModel ingredientAmount = new AmountModel(ingredientFromList.IngredientAmount.amount, ingredientFromList.IngredientAmount.units);
                     IngredientModel ingredientModel = new IngredientModel(ingredientFromList.id, ingredientFromList.name, ingredientAmount, ingredientFromList.expirationDate, ingredientFromList.placeOfPurchase, ingredientFromList.notes);
 
                     listOfIngredientsForController.Add(ingredientModel);
@@ -119,12 +119,14 @@ namespace InventoryProject.Data.Repository
             return null;
         }
 
-        public void UseIngredient(string name, decimal amountToUse)
+        public void UseIngredient(int id, decimal amountToUse)
         {
-            Ingredient ingredientToUse = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.name == name);
+            Ingredient ingredientToUse = _inventoryDatabaseEntities.Ingredient.Include("IngredientAmount").FirstOrDefault(m => m.id == id);
 
             var currentAmount = ingredientToUse.IngredientAmount.amount;
             var newAmount = currentAmount - amountToUse;
+
+            ingredientToUse.IngredientAmount.amount = newAmount;
         }
     }
 }

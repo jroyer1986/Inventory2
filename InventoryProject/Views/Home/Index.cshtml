@@ -1,0 +1,15 @@
+﻿@model InventoryProject.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="page-header">Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@{Html.RenderPartial("_IngredientList", Model.IngredientList);}
+
+@{Html.RenderPartial("_RecipeList", Model.RecipeList);}

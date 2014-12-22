@@ -13,14 +13,14 @@ namespace InventoryProject.Data
         public RecipeBookModel GetRecipeBook()
         {
             List<IngredientModel> listOfCookieIngredients = new List<IngredientModel>(){
-            new IngredientModel("flour", 400),
-            new IngredientModel("salt", 5),
-            new IngredientModel("baking soda", 75)
+            new IngredientModel("flour", 400, "grams"),
+            new IngredientModel("salt", 5, "grams"),
+            new IngredientModel("baking soda", 75, "grams")
             };
             List<IngredientModel> listOfBreadIngredients = new List<IngredientModel>(){
-                new IngredientModel("flour", 600),
-                new IngredientModel("sugar", 300),
-                new IngredientModel("corn starch", 100)                
+                new IngredientModel("flour", 600, "grams"),
+                new IngredientModel("sugar", 300, "grams"),
+                new IngredientModel("corn starch", 100, "grams")                
             };
 
             RecipeBookModel myRecipes = new RecipeBookModel();
@@ -71,7 +71,7 @@ namespace InventoryProject.Data
 
                 foreach (IngredientModel ingredientToScale in recipeToScale.Ingredients)
                 {
-                    IngredientModel newlyScaledIngredient = new IngredientModel(ingredientToScale.Name, (ingredientToScale.Amount.Total * scaleFactor));
+                    IngredientModel newlyScaledIngredient = new IngredientModel(ingredientToScale.Name, (ingredientToScale.Amount.Total * scaleFactor), ingredientToScale.Amount.Unit.ToString());
                     newIngredientAmounts.Add(newlyScaledIngredient);
                 }
                 RecipeModel scaledRecipe = new RecipeModel(recipeToScale.NameOfRecipe, newIngredientAmounts, recipeToScale.ListOfDirections, recipeToScale.EditHistory);
