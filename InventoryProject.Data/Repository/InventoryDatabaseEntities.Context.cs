@@ -29,9 +29,5 @@ namespace InventoryProject.Data.Repository
         public virtual DbSet<IngredientAmount> IngredientAmount { get; set; }
         public virtual DbSet<Recipe> Recipe { get; set; }
         public virtual DbSet<RecipeIngredientList> RecipeIngredientList { get; set; }
-
-        public System.Data.Entity.DbSet<InventoryProject.Data.IngredientModel> IngredientModels { get; set; }
-
-        public System.Data.Entity.DbSet<InventoryProject.Data.RecipeModel> RecipeModels { get; set; }
     }
 }

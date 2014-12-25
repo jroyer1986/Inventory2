@@ -20,3 +20,13 @@ C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\Inv
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.pdb
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.dll
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.xml
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.dll
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.Tests.pdb
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.dll
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.dll
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\InventoryProject.Data.pdb
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\nunit.framework.xml
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\bin\Debug\EntityFramework.xml
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.csprojResolveAssemblyReference.cache
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.dll
+C:\vsprojects\Inventory2\InventoryProject.Data.Tests\obj\Debug\InventoryProject.Data.Tests.pdb

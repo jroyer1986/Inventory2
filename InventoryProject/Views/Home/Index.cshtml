@@ -6,10 +6,17 @@
 
 <h2 class="page-header">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div >
+    <ul id="selectType">
+        <li class="selectInventoryType" id="selectIngredient"><a href="~/Views/Home/_IngredientList.cshtml">Ingredients</a></li>
+        <li class="selectInventoryType" id="selectRecipe"><a href="~/Views/Home/_RecipeList.cshtml">Recipes</a></li>
+    </ul>
+</div>
 
-@{Html.RenderPartial("_IngredientList", Model.IngredientList);}
 
-@{Html.RenderPartial("_RecipeList", Model.RecipeList);}
+
+
+
+@*@{Html.RenderPartial("_IngredientList", Model.IngredientList);}
+
+@{Html.RenderPartial("_RecipeList", Model.RecipeList);}*@

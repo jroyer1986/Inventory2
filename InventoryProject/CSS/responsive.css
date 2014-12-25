@@ -1,0 +1,17 @@
+@media screen and (min-width: 480px) {
+    #selectIngredient {
+        height: 30px;
+        width: 45%;
+        float: left;
+    }
+
+    #selectRecipe {
+        height: 30px;
+        width: 45%;
+        float: right;
+    }
+
+    .footers {
+        float: none;
+    }
+}

@@ -17,3 +17,15 @@ C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFra
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.xml
 C:\Users\CodeBox\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\InventoryProject.Data.dll.config
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\InventoryProject.Data.dll
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\InventoryProject.Data.pdb
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.dll
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\nunit.framework.dll
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.xml
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\vsprojects\Inventory2\InventoryProject.Data\bin\Debug\nunit.framework.xml
+C:\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.csprojResolveAssemblyReference.cache
+C:\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.dll
+C:\vsprojects\Inventory2\InventoryProject.Data\obj\Debug\InventoryProject.Data.pdb

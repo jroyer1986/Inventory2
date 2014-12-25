@@ -1,26 +1,53 @@
-.body-content {
-	text-align: center;
-	background-image: url(../img/randombackground.jpg);
+html {
+    min-height: 100%;
+    background-image: url(../img/cellar3.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: orange;
 	background-position: center;
+    overflow: hidden;
+}
+
+body {
+    
+    margin: auto;
+    border: 4px solid red;
+    min-height: 100%;
+	text-align: center;
+    background: none;
+    max-width: 960px;
 }
 
 .page-header {
 	font-size: 1.75em;
+    color: white;
 }
 
-h1 {
-	font-size: 72px;
-	color: white;
+a:link {
+    color: white;
+    text-shadow: 1px 1px black;
+    text-decoration: none;
 }
 
-header {
-	background-color: orange;
+#selectType li {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    max-height: 40px;
+    max-width: 400px;
+    background-image: url("../img/marble.jpg");
+    background-color: #f2a9a9;
+    opacity: 0.83;
+    border-radius: 15px;
+    font-size: 1em;
+    border: 3px solid black;
+    text-align: center;
+    list-style: none;
+    
 }
 
-p {
-	font-size: 20px;
+.footers {
+    display: block;
+    clear: both;
 }
-

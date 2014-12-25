@@ -30,8 +30,8 @@
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ingredientAmountID" Type="Int32" Nullable="false" />
     <Property Name="expirationDate" Type="DateTime" Precision="3" />
-    <Property Name="placeOfPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="placeOfPurchase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="IngredientAmount" Relationship="InventoryModel.FK_Ingredient_IngredientAmount" FromRole="Ingredient" ToRole="IngredientAmount" />
     <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryModel.FK_RecipeIngredientList_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredientList" />
   </EntityType>
@@ -52,7 +52,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="listOfDirections" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="editHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="editHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="RecipeIngredientList" Relationship="InventoryModel.FK_RecipeIngredientList_Recipe" FromRole="Recipe" ToRole="RecipeIngredientList" />
   </EntityType>
   <EntityType Name="RecipeIngredientList">

@@ -8,8 +8,8 @@
     <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ingredientAmountID" Type="int" Nullable="false" />
     <Property Name="expirationDate" Type="datetime" />
-    <Property Name="placeOfPurchase" Type="varchar" MaxLength="50" />
-    <Property Name="notes" Type="varchar(max)" />
+    <Property Name="placeOfPurchase" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="notes" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="IngredientAmount">
     <Key>
@@ -26,7 +26,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="listOfDirections" Type="varchar(max)" Nullable="false" />
-    <Property Name="editHistory" Type="varchar(max)" />
+    <Property Name="editHistory" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="RecipeIngredientList">
     <Key>
