@@ -9,13 +9,13 @@ html {
 }
 
 body {
-    
     margin: auto;
     border: 4px solid red;
     min-height: 100%;
 	text-align: center;
     background: none;
     max-width: 960px;
+    display: block;
 }
 
 .page-header {
@@ -27,6 +27,23 @@ a:link {
     color: white;
     text-shadow: 1px 1px black;
     text-decoration: none;
+    padding: 0 80px;
+    text-align: center;
+}
+
+a:visited {
+    color: white;
+    text-shadow: 1px 1px black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
 }
 
 #selectType li {
@@ -44,10 +61,22 @@ a:link {
     border: 3px solid black;
     text-align: center;
     list-style: none;
+    display: block;
+}
+
+#recipeListView, #ingredientListView, #ingredientDetailsView {
+    background-image: url("../img/paper.jpg");
+    background-size: cover;
+    max-width: 900px;
+    background-position: center;
+    background-color: #dad5d5;
     
 }
 
 .footers {
     display: block;
     clear: both;
+    border: 3px solid green;
+    font-size: .65em;
+    
 }

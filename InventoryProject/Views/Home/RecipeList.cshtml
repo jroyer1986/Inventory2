@@ -1,18 +1,25 @@
 ﻿@model IEnumerable<InventoryProject.Data.RecipeModel>
 
+@{
+    ViewBag.Title = "RecipeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RecipeList</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div id="recipeList">
-    <table class="table">
+<div id="recipeListView">
+    <table class="table" >
         <tr>
-            <th>
+            <th id="recipeName">
                 @Html.DisplayNameFor(model => model.NameOfRecipe)
             </th>
-            <th>
+            <th id="recipeDirections">
                 @Html.DisplayNameFor(model => model.ListOfDirections)
             </th>
-            <th>
+            <th id="recipeEditHistory">
                 @Html.DisplayNameFor(model => model.EditHistory)
             </th>
             <th></th>
@@ -22,14 +29,15 @@
         {
             <tr>
                 <td>
+                    @Html.ActionLink(item.NameOfRecipe, "RecipeDetails", new { id = item.ID });
                     @Html.DisplayFor(modelItem => item.NameOfRecipe)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ListOfDirections)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.EditHistory)
-                </td>
+                </td>*@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |

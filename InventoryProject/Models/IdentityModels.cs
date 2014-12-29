@@ -29,5 +29,9 @@ namespace InventoryProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<InventoryProject.Data.RecipeModel> RecipeModels { get; set; }
+
+        public System.Data.Entity.DbSet<InventoryProject.Data.IngredientModel> IngredientModels { get; set; }
     }
 }

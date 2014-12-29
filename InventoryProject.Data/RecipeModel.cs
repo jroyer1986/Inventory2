@@ -11,16 +11,17 @@ namespace InventoryProject.Data
         public int ID { get; set; }
         public string NameOfRecipe { get; set; }
         public List<IngredientModel> Ingredients { get; set; }
-        public string ListOfDirections {get;set;}
-        public string EditHistory {get;set;}
+        public string ListOfDirections {get; set;}
+        public string EditHistory {get; set;}
 
 
-        public RecipeModel(string nameOfRecipe, List<IngredientModel> ingredients, string listOfDirections, string editHistory)
+        public RecipeModel(string nameOfRecipe, List<IngredientModel> ingredients, string listOfDirections, string editHistory, int id = 0)
         {
             NameOfRecipe = nameOfRecipe;
             Ingredients = ingredients;
             ListOfDirections = listOfDirections;
             EditHistory = editHistory;
+            ID = id;
         }
 
         public RecipeModel() { }

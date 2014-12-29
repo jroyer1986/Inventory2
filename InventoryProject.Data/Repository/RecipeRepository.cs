@@ -111,8 +111,8 @@ namespace InventoryProject.Data.Repository
         public RecipeModel GetRecipeByID(int id)
         {
             Recipe recipe = _inventoryDatabaseEntities.Recipe.Include("RecipeIngredientList")
-                                                    .Include("RecipeIngredientList_Ingredient")
-                                                    .Include("RecipeIngredientList_IngredientAmount")
+                                                    .Include("RecipeIngredientList.Ingredient")
+                                                    .Include("RecipeIngredientList.IngredientAmount")
                                                     .FirstOrDefault(m => m.id == id);
             
             //convert recipe.listofrecipeingredient to list of ingredientmodels for the controller
@@ -157,7 +157,7 @@ namespace InventoryProject.Data.Repository
                 }
 
                 //convert each Recipe to a RecipeModel
-                RecipeModel recipeModel = new RecipeModel(singleDBItem.name, listOfIngredientsForRecipe, singleDBItem.listOfDirections, singleDBItem.editHistory);
+                RecipeModel recipeModel = new RecipeModel(singleDBItem.name, listOfIngredientsForRecipe, singleDBItem.listOfDirections, singleDBItem.editHistory, singleDBItem.id);
                 listOfRecipes.Add(recipeModel);
             }
             return listOfRecipes;
