@@ -33,11 +33,14 @@ namespace InventoryProject.Data.Repository
             {
                 IngredientAmount newIngredientAmount = new IngredientAmount();
                 newIngredientAmount.amount = newIngredient.Amount.Total;
+                newIngredientAmount.units = ((UnitEnum)Enum.Parse(typeof (UnitEnum) , newIngredient.Amount.Unit.ToString())).ToString();
+                _inventoryDatabaseEntities.IngredientAmount.Add(newIngredientAmount);
+                _inventoryDatabaseEntities.SaveChanges();
 
                 Ingredient dbIngredient = new Ingredient();
                 dbIngredient.id = newIngredient.ID;
                 dbIngredient.name = newIngredient.Name;
-                dbIngredient.IngredientAmount = newIngredientAmount;
+                dbIngredient.ingredientAmountID = newIngredientAmount.id;
                 dbIngredient.expirationDate = newIngredient.ExpirationDate;
                 dbIngredient.placeOfPurchase = newIngredient.PlaceOfPurchase;
                 dbIngredient.notes = newIngredient.Notes;

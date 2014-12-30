@@ -1,3 +1,34 @@
+@media screen and (max-width: 479px) {
+    .tableSmallHide {
+        display: none;
+    }
+
+    .tableSmallShow {
+        max-width: 90%;
+        align-content: center;
+        padding: 0;
+        margin: auto;
+    }
+
+    #tableSmallShow th {
+        max-width: 90%;
+        margin: auto 5%;
+        padding: 2px;
+        border: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .ingredientNameLinks a {
+        padding: 0;
+        margin: 0;
+    }
+
+    #editDeleteLinks {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 480px) {
     #selectIngredient {
         height: 30px;
@@ -13,5 +44,11 @@
 
     .footers {
         float: none;
+    }
+
+        .editDeleteLinks {
+        float: left;
+        padding: 0;
+        margin: auto;
     }
 }

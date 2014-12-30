@@ -242,6 +242,7 @@
     <Content Include="Views\Home\IngredientList.cshtml" />
     <Content Include="Views\Home\RecipeDetails.cshtml" />
     <Content Include="Views\Home\IngredientDetails.cshtml" />
+    <Content Include="Views\Home\CreateIngredient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

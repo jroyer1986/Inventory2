@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>IngredientDetails</h2>
-
 <div id="ingredientDetailsView">
+    <h2 class="pageHeader">IngredientDetails</h2>
+
     <h4>IngredientModel</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ExpirationDate)
+            @Html.DisplayName(Model.ExpirationDate.HasValue ? Model.ExpirationDate.Value.ToShortDateString() : null)
         </dd>
 
         <dt>
@@ -55,5 +55,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "IngredientList")
 </p>

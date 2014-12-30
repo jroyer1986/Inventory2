@@ -18,11 +18,13 @@ namespace InventoryProject.Data
         }
         public AmountModel(decimal amount, string unit)
         {
-            UnitEnum unitEnum = UnitEnum.grams;
+            UnitEnum unitEnum = UnitEnum.ounces;
             Enum.TryParse<UnitEnum>(unit, out unitEnum);
 
             Unit = unitEnum;
             Total = amount;
         }
+
+        public AmountModel() { }
     }
 }

@@ -9,6 +9,7 @@ namespace InventoryProject.Data
     public enum UnitEnum
     {
         grams,
-        lbs
+        lbs,
+        ounces
     }
 }

@@ -62,6 +62,15 @@ namespace InventoryProject.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult CreateIngredient()
+        {
+            IngredientModel newIngredientModel = new IngredientModel();
+            AmountModel newAmountModel = new AmountModel();
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult CreateIngredient(IngredientModel newIngredientModel)
         {
             _ingredientRepository.AddIngredient(newIngredientModel);
