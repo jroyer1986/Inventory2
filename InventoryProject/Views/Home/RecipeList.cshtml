@@ -4,47 +4,50 @@
     ViewBag.Title = "RecipeList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+ <div id="recipeListView">
+    <h2 class="pageHeader">RecipeList</h2>
 
-<h2>RecipeList</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div id="recipeListView">
-    <table class="table" >
-        <tr>
-            <th id="recipeName">
-                @Html.DisplayNameFor(model => model.NameOfRecipe)
-            </th>
-            <th id="recipeDirections">
-                @Html.DisplayNameFor(model => model.ListOfDirections)
-            </th>
-            <th id="recipeEditHistory">
-                @Html.DisplayNameFor(model => model.EditHistory)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <p>
+        @Html.ActionLink("Create New", "CreateRecipe", null, new { @class = "createNewButton" })
+    </p>
+    <div>
+        <table class="table tableOverride">
             <tr>
-                <td>
-                    @Html.ActionLink(item.NameOfRecipe, "RecipeDetails", new { id = item.ID });
-                    @Html.DisplayFor(modelItem => item.NameOfRecipe)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.ListOfDirections)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EditHistory)
-                </td>*@
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
+                <th class="tableSmallHide">
+                    @Html.DisplayNameFor(model => model.NameOfRecipe)
+                </th>
+                <th class="tableSmallHide">
+                    @Html.DisplayNameFor(model => model.ListOfDirections)
+                </th>
+                <th class="tableSmallHide">
+                    @Html.DisplayNameFor(model => model.EditHistory)
+                </th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="ingredientNameLinks">
+                        @Html.ActionLink(item.NameOfRecipe, "RecipeDetails", new { id = item.ID });
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ListOfDirections)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EditHistory)
+                        </td>*@
+                    <td id="editDeleteLinks">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="backToInventoryButton">
+    <p>
+        @Html.ActionLink("Back to Inventory", "Index")
+    </p>
 </div>

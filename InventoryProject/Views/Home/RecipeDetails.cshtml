@@ -5,39 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RecipeDetails</h2>
+<div id="recipeDetailView">
+    <h2 class="pageHeader">RecipeDetails</h2>
 
-<div>
-    <h4>RecipeModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NameOfRecipe)
-        </dt>
+    <div>
+        <h4>RecipeModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NameOfRecipe)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NameOfRecipe)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NameOfRecipe)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ListOfDirections)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ListOfDirections)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ListOfDirections)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ListOfDirections)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EditHistory)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EditHistory)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EditHistory)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EditHistory)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="backToInventoryButton">
+    <p>
+        @Html.ActionLink("Back to Inventory", "Index")
+    </p>
+</div>

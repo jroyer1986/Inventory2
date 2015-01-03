@@ -2,17 +2,18 @@ html {
     height: 100%;
 }
 
-    html body {
-        text-align: center;
-        background: none;
-        display: block;
-        background-image: url(../img/cellar3.png);
-        min-height: 100%;
-        background-position: center;
+html body {
+    text-align: center;
+    background: none;
+    display: block;
+    background-image: url(../img/cellar3.png);
+    min-height: 100%;
+    background-position: center;
     }
 
 .pageHeader {
-    font-size: 1.6em;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
     color: white;
     text-shadow: 1px 1px black;
     text-decoration: underline;
@@ -42,27 +43,32 @@ ul {
 }
 
 #selectType li {
+    font-family: 'Gloria Hallelujah', cursive;
     text-decoration: none;
     margin-bottom: 10px;
     display: block;
-    max-height: 40px;
+    min-height: 50px;
+    max-height: 200px;
     max-width: 400px;
-    background-image: url("../img/marble.jpg");
+    background-image: url("../img/paper.jpg");
     background-color: #f2a9a9;
-    opacity: 0.83;
+    opacity: 0.6;
     border-radius: 15px;
-    font-size: 1em;
+    font-size: 1.5em;
     border: 3px solid black;
     text-align: center;
     list-style: none;
     display: block;
 }
 
-    #selectType li a {
-        color: white;
-    }
+#selectType li a {
+    display: block;
+    color: white;
+    padding: 10%;
+}
 
-#recipeListView, #ingredientListView, #ingredientDetailsView, #createIngredientView {
+#recipeListView, #ingredientListView, #ingredientDetailsView, #createIngredientView, #recipeDetailView {
+    font-family: 'Gloria Hallelujah', cursive;
     background-image: url("../img/paper.jpg");
     background-size: cover;
     max-width: 900px;
@@ -78,6 +84,7 @@ ul {
 }
 
 .footers {
+    font-family: 'Gloria Hallelujah', cursive;
     display: block;
     clear: both;
     color: white;
@@ -86,7 +93,7 @@ ul {
 }
 
 .createNewButton {
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: white;
     margin: 10px 0;
 }
@@ -100,20 +107,21 @@ ul {
     margin: auto;
 }
 
-.tableOverride {
-    vertical-align: middle;
-}
-
 #editDeleteLinks {
+    font-family: 'Gloria Hallelujah', cursive;
     padding: 0;
     vertical-align: middle;
 }
 
-.ingredientNameLinks {
-    padding: 0;
+tbody>tr>td.ingredientNameLinks {
+    font-family: 'Gloria Hallelujah', cursive;
+    padding: .2em;
     vertical-align: middle;
+    border-top: none;
 }
 
 .backToInventoryButton {
+    font-family: 'Gloria Hallelujah', cursive;
     margin: 15px 0 0 0;
 }
+
